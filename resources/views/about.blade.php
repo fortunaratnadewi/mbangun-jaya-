@@ -9,6 +9,6 @@
 <body>
     <a href="/">Home</a>
     <a href="/about">About</a>
-    
+    <h1>Ini halaman About</h1>
 </body>
 </html>

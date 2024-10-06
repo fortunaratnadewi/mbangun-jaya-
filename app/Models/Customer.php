@@ -9,17 +9,28 @@ class Customer extends Model
 {
     use HasFactory;
 
-    protected $table = 'customer';
-    protected $primaryKey = 'kode_customer';
+    protected $table = 'customers';
+    protected $primaryKey = 'id';
     public $incrementing = true;
-    protected $keyType = 'String';
+    protected $keyType = 'int';
     
     protected $fillable = [
-        'kode_customer',
+        // 'kode_customer',
         'nama',
         'alamat',
         'no_telp',
         'email',
         'password',
+
+    
 ];
+
+protected $hidden = [
+    'password', 'remember_token',
+];
+
+protected $casts = [
+    'email_verified_at' => 'datetime',
+];
+
 }

@@ -2,88 +2,68 @@
 
 namespace App\Http\Controllers;
 
+//import modal Customer 
 use App\Models\Customer;
-use App\Http\Requests\StoreCustomerRequest;
-use App\Http\Requests\UpdateCustomerRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 
 class CustomerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+
+    // Register Customer
+    public function register(Request $request)
     {
-        //
-    }
+      
+{
+    $request->validate([
+        'nama'              => 'required|string',
+        'alamat'            => 'required|string',
+        'no_telp'           => 'required|string',
+        'email'             => 'required|string|email|unique:customers,email', // pastikan email unik
+        'password'          => 'required|string|confirmed'
+    ]);
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+    $customer = Customer ::create([
+        'nama'              => $request->nama,
+        'alamat'            => $request->alamat,
+        'no_telp'           => $request->no_telp,
+        'email'             => $request->email,
+        'password'          => Hash::make($request->password),
+    ]);
 
-    /**
-     * Store a newly created resource in storage.
-     */
-
-    public function store(StoreCustomerRequest $request)
-    {
-        //validate form 
-        $request->validated([
-            'kode_customer'     => 'required|min:18',
-            'nama'              => 'required|min:18',
-            'alamat'            => 'required|min:20',
-            'no_telp'           => 'required|min:12',
-            'email'             => 'required|min:20',
-            'password'          => 'required|min:18'
-            
-        ]);
-
-        //insert data ke dalam database, dimana menggunakan model customer 
-        Customer::create([
-            'kode_customer'     => $request->kode_customer,
-            'nama'              => $request->nama,
-            'alamat'            => $request->alamat,
-            'no_telp'           => $request->no_telp,
-            'email'             => $request->email,
-            'password'          => $request->password,
-        ]);
-
-        return redirect()->route('Customer')->with(['success' => 'Data berhasil disimpan!']);
-    }
-       
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Customer $customer)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Customer $customer)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateCustomerRequest $request, Customer $customer)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Customer $customer)
-    {
-        //
-    }
+    return response()->json(['message' => 'Customer registered successfully!'], 201);
 }
+
+    }
+
+    // Login Customer
+    public function login(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|string|email',
+            'password' => 'required|string',
+        ]);
+
+        $customer = Customer ::where('email', $request->email)->first();
+
+        if (! $customer || ! Hash::check($request->password, $customer->password)) {
+            throw ValidationException::withMessages([
+                'email' => ['Email tidak terdaftar'],
+            ]);
+        }
+
+        Auth::login($customer);
+
+        return response()->json(['message' => 'Login berhasil'], 200);
+    }
+
+    // Logout Customer
+    // public function logout()
+    // {
+    //     Auth::logout();
+    //     return response()->json(['message' => 'Logged out successfully!'], 200);
+    // }
+}
+
