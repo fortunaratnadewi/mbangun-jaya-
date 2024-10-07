@@ -7,7 +7,6 @@ use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\ValidationException;
 
 class CustomerController extends Controller
 {
@@ -35,29 +34,27 @@ class CustomerController extends Controller
 
     return response()->json(['message' => 'Customer registered successfully!'], 201);
 }
-
     }
 
     // Login Customer
     public function login(Request $request)
-    {
-        $request->validate([
-            'email' => 'required|string|email',
-            'password' => 'required|string',
-        ]);
+{
+    $request->validate([
+        'email' => 'required|string|email|max:255',
+        'password' => 'required|string|max:255',
+    ]);
+    
+    $customer = Customer::where('email', $request->email)->first();
 
-        $customer = Customer ::where('email', $request->email)->first();
-
-        if (! $customer || ! Hash::check($request->password, $customer->password)) {
-            throw ValidationException::withMessages([
-                'email' => ['Email tidak terdaftar'],
-            ]);
-        }
-
-        Auth::login($customer);
-
-        return response()->json(['message' => 'Login berhasil'], 200);
+    if (! $customer || ! Hash::check($request->password, $customer->password)) {
+        return redirect()->back()->with('error', 'Email atau password salah');
     }
+
+    // Login sukses, gunakan Auth::login
+    Auth::login($customer);
+
+    return redirect('/')->with('success', 'Login berhasil');
+}
 
     // Logout Customer
     // public function logout()
@@ -66,4 +63,3 @@ class CustomerController extends Controller
     //     return response()->json(['message' => 'Logged out successfully!'], 200);
     // }
 }
-

@@ -14,15 +14,23 @@
 
         <!-- Jika ada pesan kesalahan, tampilkan di sini -->
         @if(session('error'))
-            <div class="alert alert-danger">{{ session('error') }}</div>
-        @endif
+        <div class="alert alert-danger">{{ session('error') }}</div>
+    @endif
+    
+    @if(session('success'))
+        <div class="alert alert-success">{{ session('success') }}</div>
+    @endif
+    
 
         <form method="POST" action="/login">
             @csrf
             <div class="mb-3">
                 <label for="email" class="form-label">Email address</label>
                 <input type="email" class="form-control" id="email" name="email" required>
-            </div>
+                @error('email')
+                    <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>            
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
                 <input type="password" class="form-control" id="password" name="password" required>
