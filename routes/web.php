@@ -1,36 +1,28 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CustomerController;
-
 
 Route::get('/', function () {
-    return view('home');
+    return view('halamanUtama');
+
+
 });
 
-Route::get('/about', function () {
-    return view('about');
+Route::get('/pesan', function (){
+    return view ('halamanPesan');
 });
 
-
-Route::get('/register', function () {
-    return view('register');
+Route::get('/login', function (){
+    return view ('login');
 });
 
-Route::get('/login', action: function () {
-    return view('login');
-});
+Route::get('/register', function (){
+    return view ('register');
+});  
 
-
-//untuk berhubungan dengan authcontroller 
-Route::post('/register', [CustomerController::class, 'register']);
-Route::post('/login', [CustomerController::class, 'login']);
-// Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:customer');
-
-
-
-
-
-
-
-
+Route::get('/success', function (){
+    return view ('successRegister');
+});   
+Route::get('/checkout', function (){
+    return view ('checkout');
+});   
