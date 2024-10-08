@@ -11,11 +11,6 @@ Route::get('/pesan', function (){
     return view ('halamanPesan');
 });
 
-Route::get('/login', function (){
-    return view ('login');
-});
-
-
 Route::get('/login', function () {
     return view('login');
 });
@@ -27,6 +22,7 @@ Route::get('/register', function (){
 Route::get('/success', function (){
     return view ('successRegister');
 });   
+
 Route::get('/checkout', function (){
     return view ('checkout');
 });  
