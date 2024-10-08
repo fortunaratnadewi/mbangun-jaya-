@@ -3,26 +3,29 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('halamanUtama');
+    return view('customer.halamanUtama');
 
 
 });
 
 Route::get('/pesan', function (){
-    return view ('halamanPesan');
+    return view ('customer.halamanPesan');
 });
 
 Route::get('/login', function (){
-    return view ('login');
+    return view ('customer.login');
 });
 
 Route::get('/register', function (){
-    return view ('register');
+    return view ('customer.register');
 });  
 
 Route::get('/success', function (){
-    return view ('successRegister');
+    return view ('customer.successRegister');
 });   
 Route::get('/checkout', function (){
-    return view ('checkout');
+    return view ('customer.checkout');
 });   
+Route::get('/alamat', function (){
+    return view ('customer.alamat');
+});
