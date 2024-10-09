@@ -23,6 +23,7 @@ Route::get('/register', function (){
 Route::get('/success', function (){
     return view ('customer.successRegister');
 });   
+
 Route::get('/checkout', function (){
     return view ('customer.checkout');
 });   

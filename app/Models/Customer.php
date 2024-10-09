@@ -3,9 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Customer extends Model
+class Customer extends Authenticatable
 {
     use HasFactory;
 
@@ -13,24 +13,20 @@ class Customer extends Model
     protected $primaryKey = 'id';
     public $incrementing = true;
     protected $keyType = 'int';
-    
+
     protected $fillable = [
-        // 'kode_customer',
         'nama',
         'alamat',
         'no_telp',
         'email',
         'password',
+    ];
 
-    
-];
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
 
-protected $hidden = [
-    'password', 'remember_token',
-];
-
-protected $casts = [
-    'email_verified_at' => 'datetime',
-];
-
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
 }
