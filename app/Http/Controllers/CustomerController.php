@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 //import modal Customer 
 use App\Models\Customer;
-use GrahamCampbell\ResultType\Success;
-use Illuminate\Auth\Events\Login;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -21,8 +19,9 @@ class CustomerController extends Controller
         'alamat'            => 'required|string',
         'no_telp'           => 'required|string',
         'email'             => 'required|string|email|unique:customers,email', // pastikan email unik
-        'password'          => 'required|string|confirmed'
-    ]);
+        'password'          => 'required|string|confirmed'   
+    ], 
+);
 
     $customer = Customer ::create([
         'nama'              => $request->nama,
@@ -33,11 +32,6 @@ class CustomerController extends Controller
     ]);
 
     return redirect('/success'); 
-
-    // Login otomatis setelah registrasi berhasil
-    // Auth::login($customer);
-
-    
 }
     }
 
@@ -45,8 +39,8 @@ class CustomerController extends Controller
     public function login(Request $request)
 {
     $request->validate([
-        'email' => 'required|string|email|max:255',
-        'password' => 'required|string|max:255',
+        'email' => 'required|string|email|max:255|', //supaya akhiran .com 
+        'password' => 'required|string|max:255|min:8',
     ]);
     
     $customer = Customer::where('email', $request->email)->first();
@@ -59,6 +53,7 @@ class CustomerController extends Controller
     Auth::login($customer);
 
     return redirect('/')->with('success', 'Login berhasil');
+
 }
 
     // Logout Customer
