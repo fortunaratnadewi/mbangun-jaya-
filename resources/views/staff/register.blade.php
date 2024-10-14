@@ -15,7 +15,8 @@
         
         <!-- Formulir pendaftaran -->
         <form method="POST" action="/register">
-            @csrf <!-- Menyertakan token CSRF untuk keamanan -->
+            @csrf
+             <!-- Menyertakan token CSRF untuk keamanan -->
             <div class="mb-3">
                 <label for="nama" class="form-label">Nama</label>
                 <input type="text" class="form-control" id="nama" name="nama" required>

@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('asset') }}/css/halamanPemesanan.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Semen BEZT 40kg Harga Eceran</title>
+    <title>Cat Tembok Interior Harga Eceran</title>
     <style>
         .product-image {
             display: flex;
@@ -68,28 +68,29 @@
         <!-- Main Product Details Section -->
         <div class="product-details flex flex-col md:flex-row gap-6">
             <div class="product-image flex flex-col items-center">
-                <img id="mainImage" src="{{ asset('image/semen.jpeg') }}" alt="Semen BEZT 40kg" class="main-image mb-4">
+                <img id="mainImage" src="{{ asset('image/catB1.webp') }}" alt="Cat Tembok Interior" class="main-image mb-4">
 
                 <!-- Thumbnail Buttons -->
                 <div class="thumbnail-container">
-                    <button class="thumbnail" onclick="changeImage('image/semen.jpeg')">
-                        <img src="{{ asset('image/semen.jpeg') }}" class="thumbnail-image" alt="gambar 1">
+                    <button class="thumbnail" onclick="changeImage('{{ asset('image/catB2.webp') }}')">
+                        <img src="{{ asset('image/catB2.webp') }}" class="thumbnail-image" alt="gambar 1">
                     </button>
-                    <button class="thumbnail" onclick="changeImage('image/semen1.jpeg')">
-                        <img src="{{ asset('image/semen1.jpeg') }}" class="thumbnail-image" alt="gambar 2">
+                    <button class="thumbnail" onclick="changeImage('{{ asset('image/catB3.webp') }}')">
+                        <img src="{{ asset('image/catB3.webp') }}" class="thumbnail-image" alt="gambar 2">
                     </button>
-                    <button class="thumbnail" onclick="changeImage('image/semen2.jpeg')">
-                        <img src="{{ asset('image/semen2.jpeg') }}" class="thumbnail-image" alt="gambar 3">
+                    <button class="thumbnail" onclick="changeImage('{{ asset('image/catB4.webp') }}')">
+                        <img src="{{ asset('image/catB4.webp') }}" class="thumbnail-image" alt="gambar 3">
                     </button>
                 </div>
+
             </div>
             <div class="product-info">
-                <h1 class="text-2xl font-bold mb-2">Semen BEZT 40kg Harga Eceran</h1>
+                <h1 class="text-2xl font-bold mb-2">Cat Tembok Interior Harga Eceran</h1>
                 <div class="rating flex items-center space-x-2 mb-2">
                     <span class="text-yellow-500">★★★★★</span>
                     <span class="text-gray-600">5.0 | 10 Penilaian</span>
                 </div>
-                <h2 class="text-xl font-bold text-red-600 mb-4">Rp. 50.000</h2>
+                <h2 class="text-xl font-bold text-red-600 mb-4">Rp. 150.000</h2>
                 <p class="mb-2">Return: <span class="text-green-600">Bebas Pengembalian</span></p>
                 <p class="mb-4">Pengiriman: Kota Jakarta Pusat</p>
 
@@ -120,10 +121,10 @@
         <div class="specifications mt-8 bg-gray-50 p-4 rounded-lg shadow-md">
             <h2 class="text-lg font-bold mb-4">Spesifikasi Produk</h2>
             <div class="grid grid-cols-2 gap-4">
-                <div><strong>Kategori:</strong> Mbangun Jaya > Bahan Dasar</div>
-                <div><strong>Stok:</strong> 12.356</div>
-                <div><strong>Merek:</strong> BEZT</div>
-                <div><strong>Kode Barang:</strong> a83dmm</div>
+                <div><strong>Kategori:</strong> Cat dan Pelapis > Tembok Interior</div>
+                <div><strong>Stok:</strong> 3.500</div>
+                <div><strong>Merek:</strong> BestPaint</div>
+                <div><strong>Kode Barang:</strong> CAT2023</div>
             </div>
         </div>
 
@@ -131,10 +132,10 @@
         <div class="description mt-4 bg-gray-50 p-4 rounded-lg shadow-md">
             <h2 class="text-lg font-bold mb-2">Deskripsi Produk</h2>
             <ul class="list-disc list-inside">
-                <li>Semen BEZT 40kg Harga Eceran.</li>
-                <li>Pengiriman aman sampai tujuan.</li>
-                <li>Minimal pembelian 1 DO (200 zak).</li>
-                <li>Informasi lebih lanjut, chat admin kami.</li>
+                <li>Cat tembok interior tahan lama dengan kualitas terbaik.</li>
+                <li>Melindungi permukaan dari kerusakan dan memberikan hasil akhir yang halus.</li>
+                <li>Tersedia dalam berbagai warna, cocok untuk interior.</li>
+                <li>Informasi lebih lanjut, hubungi admin kami.</li>
             </ul>
         </div>
 
@@ -146,35 +147,32 @@
                 <span class="text-gray-600">5 dari 5 | 234 Ulasan</span>
             </div>
             <div class="review-item p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-    <div class="flex items-center space-x-2">
-        <img src="image/semen3.jpg" alt="User" class="w-10 h-10 rounded-full">
-        <div>
-            <p class="font-bold">Dewi L.</p>
-            <span class="text-yellow-500">★★★★★</span>
-            <span class="text-gray-500">Produk Memuaskan</span>
-        </div>
-    </div>
-    <p class="text-sm text-gray-600 mt-2">Kualitas semen sangat baik dan pengiriman cepat.</p>
-    
-    <!-- Section for the uploaded image -->
-    <div class="review-image-container flex space-x-4 mt-4">
-        <img src="image/semen3.jpg" alt="Gambar Ulasan" class="w-32 h-32 object-cover rounded-lg">
-        <img src="image/semen4.webp" alt="Gambar Ulasan" class="w-32 h-32 object-cover rounded-lg">
-        
-        <!-- Extra images hidden by default -->
-        <div id="extraImages" class="hidden flex space-x-4">
-            <img src="image/semen5.jpg" alt="Gambar Ulasan Tambahan" class="w-32 h-32 object-cover rounded-lg">
-            <img src="image/semen6.jpg" alt="Gambar Ulasan Tambahan" class="w-32 h-32 object-cover rounded-lg">
-        </div>
-        
-        <!-- Show more button -->
-        <button id="showMoreBtn" class="w-32 h-32 bg-gray-200 text-gray-700 rounded-lg flex justify-center items-center text-lg font-bold">
-            +2
-        </button>
-    </div>
-</div>
+                <div class="flex items-center space-x-2">
+                    <img src="image/user1.jpeg" alt="User" class="w-10 h-10 rounded-full">
+                    <div>
+                        <p class="font-bold">Andi S.</p>
+                        <span class="text-yellow-500">★★★★★</span>
+                        <span class="text-gray-500">Hasil Bagus</span>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-600 mt-2">Cat tembok interior ini benar-benar memberikan hasil akhir yang halus dan tahan lama.</p>
 
-
+                <!-- Section for the uploaded image -->
+                <div class="review-image-container flex space-x-4 mt-4">
+                    <img src="image/catB5.jpeg" alt="Gambar Ulasan" class="w-32 h-32 object-cover rounded-lg">
+                    <img src="image/catB6.jpeg" alt="Gambar Ulasan" class="w-32 h-32 object-cover rounded-lg">
+                    
+                    <!-- Extra images hidden by default -->
+                    <div id="extraImages" class="hidden flex space-x-4">
+                        <img src="image/catB1.webp" alt="Gambar Ulasan Tambahan" class="w-32 h-32 object-cover rounded-lg">
+                        <img src="image/catB6.webp" alt="Gambar Ulasan Tambahan" class="w-32 h-32 object-cover rounded-lg">
+                    </div>
+                    
+                    <!-- Show more button -->
+                    <button id="showMoreBtn" class="w-32 h-32 bg-gray-200 text-gray-700 rounded-lg flex justify-center items-center text-lg font-bold">
+                        +2
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -187,3 +185,4 @@
     </script>
 </body>
 
+</html>

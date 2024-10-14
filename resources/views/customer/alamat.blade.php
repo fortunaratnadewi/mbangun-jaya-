@@ -20,18 +20,25 @@
 </head>
 <body class="bg-gray-100">
 
-    <!-- Container Utama -->
-    <div class="container mx-auto px-4 py-6">
-        <!-- Bagian Atas (Navigasi dan Judul) -->
-        <div class="flex justify-between items-center bg-white p-4 rounded-lg shadow-md">
-            <div class="flex items-center space-x-4">
-                <img src="logo.png" alt="Logo" class="w-12">
-                <h1 class="text-2xl font-bold">Mbangun Jaya</h1>
-            </div>
-            <div class="flex space-x-6">
-                <a href="#" class="text-gray-700">Home</a>
-                <a href="#" class="text-gray-700">Contact Us</a>
-                <a href="#" class="text-gray-700">Profil</a>
+    <!-- Navbar -->
+    <nav class="bg-white shadow-lg">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <a class="flex items-center" href="#">
+                    <img src="{{ asset('image/logo.png') }}" alt="Logo" class="w-12">
+                    <span class="ml-3 text-xl font-bold">Toko Mbangun Jaya</span>
+                </a>
+                <form class="flex">
+                    <input class="form-input py-2 px-4 rounded-l-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" type="search" placeholder="Search" aria-label="Search">
+                    <button class="px-4 bg-blue-500 text-white rounded-r-lg">Search</button>
+                </form>
+                <ul class="flex items-center space-x-4">
+                    <li><a href="#" class="text-gray-600 hover:text-gray-800">Home</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-800">Contact Us</a></li>
+                    <li><a href="/about" class="text-gray-600 hover:text-gray-800">Profil</a></li>
+                    <li><a href="/login" class="text-gray-600 hover:text-gray-800">Daftar</a></li>
+                    <li><a href="#" class="text-gray-600 hover:text-gray-800"><i class="fas fa-shopping-cart"></i></a></li>
+                </ul>
             </div>
         </div>
 
